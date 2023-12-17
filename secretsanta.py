@@ -29,7 +29,7 @@ def check_valid(match) -> bool:
     for senta, assignee in match:
         if senta == assignee:
             return False
-        if senta.invalid_match.count(assignee.name) > 0:
+        if assignee.name in senta.invalid_match:
             return False
 
     return True
