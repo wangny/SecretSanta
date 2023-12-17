@@ -1,4 +1,7 @@
 # Secret Santa
+### Environment
+python 3.11
+
 
 ### Target
 1. read from input json to class participant
