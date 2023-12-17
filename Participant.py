@@ -1,6 +1,5 @@
 class Participant:
-  def __init__(self) -> None:
-    pass
-
-  def send_email() -> bool:
-    pass
+  def __init__(self, name, email, address) -> None:
+    self.name = name
+    self.email = email
+    self.address = address
