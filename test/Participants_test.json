@@ -1,0 +1,22 @@
+{
+  "participants":
+  [
+    {
+      "name": "name1",
+      "email": "name1@email.com",
+      "address": "address1"
+    },
+    {
+      "name": "name2",
+      "email": "name2@email.com",
+      "address": "address2"
+    }
+  ],
+  "invalid_matches":
+  [
+    [
+      "name1",
+      "name2"
+    ]
+  ]
+}

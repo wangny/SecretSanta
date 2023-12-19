@@ -7,7 +7,9 @@ class TestParticipantLoader():
     def setup_method(self):
         self.JSON_EXT = ".json"
         self.participant_loader = ParticipantLoader()
-        self.participant_loader.load()
+
+        filename = os.path.join(os.path.dirname(__file__), "Participants_test.json")
+        self.participant_loader.load(filename=filename)
 
     def test_load(self):
         assert isinstance(self.participant_loader.participants, dict)
