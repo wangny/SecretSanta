@@ -1,6 +1,4 @@
-import smtplib
-from email.message import EmailMessage
-from .participant import Participant
+from participant import Participant
 import random
 
 
@@ -33,10 +31,6 @@ def check_valid(match) -> bool:
             return False
 
     return True
-
-
-def send_email() -> bool:
-    pass
 
 
 if __name__ == "__main__":
