@@ -1,4 +1,4 @@
-from ..participant import Participant
+from participant import Participant
 
 class TestParticipant:
     def setup_method(self):
