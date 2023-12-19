@@ -1,6 +1,13 @@
 # Secret Santa
-### Environment
+### Execution
+#### Environment
 python 3.11
+#### To Test
+pytest
+#### To run
+python3 secretsanta.py
+or
+python3 -m secretsanta
 
 
 ### Target
