@@ -40,7 +40,7 @@ class ParticipantLoader():
             self.participants[match[0]].invalid_match.add(match[1])
             self.participants[match[1]].invalid_match.add(match[0])
 
-        print("Loaded.")
+        print("Done loading.")
         return list(self.participants.values())
 
     def __set_invalid_matches(self, invalid_matches):
