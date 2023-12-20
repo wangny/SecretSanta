@@ -1,17 +1,16 @@
 import os
 import random
+import email_service as email
 from participant import Participant
 from load_data import ParticipantLoader
 
 
 def secret_santa():
     print("Secret Santa!")
-    loader = ParticipantLoader()
-    filename = os.path.join(os.path.dirname(__file__), "test", "Participants_test.json")
-    participants = loader.load(filename)
-    invalid_matches = get_matches(participants)
-    for (p1, p2) in invalid_matches:
-        print("[" + p1.name + ", " + p2.name + "]")
+    participants = ParticipantLoader().load()
+    matches = get_matches(participants)
+    for (receiver, sender) in matches:
+        email.send_email(email.compose_email(receiver, sender))
 
 def get_matches(participants: Participant) -> [(Participant, Participant)]:
     """generate matches of Participant and assignee"""
