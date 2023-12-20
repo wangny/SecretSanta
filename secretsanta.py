@@ -1,14 +1,17 @@
-from participant import Participant
+import os
 import random
+from participant import Participant
+from load_data import ParticipantLoader
 
 
 def secret_santa():
-    print("secret_santa")
-
-
-def load_participant() -> [Participant]:
-    pass
-
+    print("Secret Santa!")
+    loader = ParticipantLoader()
+    filename = os.path.join(os.path.dirname(__file__), "test", "Participants_test.json")
+    participants = loader.load(filename)
+    invalid_matches = get_matches(participants)
+    for (p1, p2) in invalid_matches:
+        print("[" + p1.name + ", " + p2.name + "]")
 
 def get_matches(participants: Participant) -> [(Participant, Participant)]:
     """generate matches of Participant and assignee"""
