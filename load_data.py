@@ -1,3 +1,4 @@
+import os
 import json
 from participant import Participant
 
@@ -16,7 +17,8 @@ class ParticipantLoader():
         self.invalid_matches = []
         self.__error_tag = "Loading Error: "
 
-    def load(self, filename="./data/Participants.json") -> list:
+    def load(self, filename=os.path.join(os.path.dirname(__file__), "data", "Participants.json")) -> list:
+        print("Loading: " + filename)
         with open(filename) as f :
             data = json.load(f)
 
@@ -38,7 +40,8 @@ class ParticipantLoader():
             self.participants[match[0]].invalid_match.add(match[1])
             self.participants[match[1]].invalid_match.add(match[0])
 
-        return self.participants
+        print("Done loading.")
+        return list(self.participants.values())
 
     def __set_invalid_matches(self, invalid_matches):
         for invalid_match in invalid_matches:
