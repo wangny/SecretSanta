@@ -8,8 +8,10 @@ def secret_santa():
     print("=== Secret Santa starts ===")
     participants = ParticipantLoader().load()
     matches = get_matches(participants)
+    account = input("SMTP sender account: ")
+    password = input("SMTP password: ")
     for (receiver, sender) in matches:
-        email.send_email(email.compose_email(receiver, sender))
+        email.send_email(email.compose_email(receiver, sender), account, password)
     print("=== Secret Santa ends ===")
 
 def get_matches(participants: Participant) -> [(Participant, Participant)]:

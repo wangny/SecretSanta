@@ -26,8 +26,14 @@ Dear {assignee.name},
     return msg
 
 
-def send_email(msg: EmailMessage) -> bool:
+def send_email(msg: EmailMessage, account: str, password: str) -> bool:
     # Send the message via our own SMTP server.
-    s = smtplib.SMTP('smtp.gmail.com', 587)
-    s.send_message(msg)
-    s.quit()
+    with smtplib.SMTP('smtp.gmail.com', 587) as s:
+        try:
+            s.ehlo()
+            s.starttls()
+            s.login(account, password)
+            s.send_message(msg)
+            print("Complete sending email to "+msg["To"])
+        except Exception as e:
+            print("Error message: ", e)
