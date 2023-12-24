@@ -1,4 +1,4 @@
-from email_service import compose_email
+from email_service import EmailService
 from participant import Participant
 
 participants = [
@@ -9,6 +9,8 @@ participants = [
 
 
 def test_compose_email():
-    result = compose_email(participants[0], participants[1])
+    service = EmailService("account", "password")
+    result = service.compose_email(participants[0], participants[1])
 
     assert result.get_all("TO") == [participants[1].email]
+    assert result.get_all("From") == ["account"]

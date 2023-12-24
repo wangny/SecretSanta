@@ -1,17 +1,18 @@
 import random
-import email_service as email
+from email_service import EmailService
 from participant import Participant
 from load_data import ParticipantLoader
 
 
 def secret_santa():
     print("=== Secret Santa starts ===")
-    participants = ParticipantLoader().load()
-    matches = get_matches(participants)
     account = input("SMTP sender account: ")
     password = input("SMTP password: ")
+    email = EmailService(account, password)
+    participants = ParticipantLoader().load()
+    matches = get_matches(participants)
     for (receiver, sender) in matches:
-        email.send_email(email.compose_email(receiver, sender), account, password)
+        email.send_email(email.compose_email(receiver, sender))
     print("=== Secret Santa ends ===")
 
 def get_matches(participants: Participant) -> [(Participant, Participant)]:
