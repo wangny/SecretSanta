@@ -24,17 +24,28 @@ class EmailService():
         msg["To"] = assignee.email
         msg.set_content(
             f"""
-    Dear {assignee.name},
-        Thank you for attending the Secret Santa event.
-        Here are the information of you are assigned to sent Christmas gift:
-        - name: {participant.name}
-        - address: {participant.address}
+Dear {assignee.name},
 
-        Some reminders:
-        - please make sure your gift arrive on-time
-        - gift budget is NTD 500+
-        - we plan to play unspottable(https://store.steampowered.com/app/1243960/Unspottable/) during the event, might be nice to get it in advance ;)
-        See you online on 2024/1/1 night, lets par-tay!
+    您好，感謝參與這次的神秘交換禮物活動!
+    您負責擔任 {participant.name} 的神秘聖誕(新年)老公公，以下是他/她的資料:
+        - 姓名: {participant.name}
+        - 地址: {participant.address}
+
+    溫馨小提醒:
+        - 現在才抽籤有點晚了，但希望禮物能在1/1以前寄到 QQ
+        - 禮物預算: 台幣500+
+        - 1/1晚上 18:30 Google Meet 線上派對！ 
+            - 連結到時候再傳到群組xD
+            - 直播開箱禮物！
+            - 一起玩 unspottable(https://store.steampowered.com/app/1243960/Unspottable/)
+        - 無法參與線上派對的可以拍下您收到的禮物傳給主辦
+
+    再次感謝您的參與，期待在線上見到大家！
+
+    Merry Christmas and happy new year!
+    
+    Regards,
+    Your friendly secret santa bot
         """
         )
         return msg
